@@ -1,0 +1,9 @@
+com\test\WebApplication.class
+com\test\dataaccess\entity\AssetDO.class
+com\test\service\AssetService.class
+com\test\controller\AssetController.class
+com\test\base\Result.class
+com\test\request\LoginRequest.class
+com\test\response\User.class
+com\test\dataaccess\mapper\AssetMapper.class
+com\test\controller\LoginController.class
