@@ -12,27 +12,26 @@ public class UserService {
     @Autowired
     private UserMapper assetMapper;
 
-    public UserDO addAsset(UserDO userDO) {
-        assetMapper.insertUser(userDO);
+    public UserDO addUser(UserDO userDO) {
+        UserMapper.insertUser(userDO);
         return userDO;
 
     }
 
-    public UserDO getAssetById(Long id) {
-        return assetMapper.selectUserById(id);
+    public UserDO getUserById(Long id) {
+        return UserMapper.selectUserById(id);
     }
 
-    public List<UserDO> getAllAssets() {
-        return assetMapper.selectAllUsers();
+    public List<UserDO> getAllUsers() {
+        return UserMapper.selectAllUsers();
     }
 
-    public List<UserDO> getAssetsByPage(int offset, int limit) {
-        return assetMapper.selectUsersByPage(offset, limit);
+    public List<UserDO> getUsersByPage(int offset, int limit) {
+        return UserMapper.selectUsersByPage(offset, limit);
     }
 
 
-
-    public Integer updateAsset(UserDO userDO) {
-        return assetMapper.updateUser(userDO);
+    public Integer updateUser(UserDO userDO) {
+        return UserMapper.updateUser(userDO);
     }
 }

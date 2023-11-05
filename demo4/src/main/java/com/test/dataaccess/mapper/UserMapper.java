@@ -11,14 +11,29 @@ import java.util.List;
 @Repository
 public interface UserMapper {
 
-    UserDO insertAsset(UserDO userDO);  // 新增资产
+    static UserDO insertUser(UserDO userDO)  // 新增资产
+    {
+        return null;
+    }
 
-    UserDO selectAssetById(@Param("id") Long id);  // 资产详情
+    static UserDO selectUserById(@Param("id") Long id)  // 资产详情
+    {
+        return null;
+    }
 
-    List<UserDO> selectAllAssets();  // 查询所有资产
+    static List<UserDO> selectAllUsers()  // 查询所有资产
+    {
+        return null;
+    }
 
-    List<UserDO> selectAssetsByPage(@Param("offset") int offset, @Param("limit") int limit);  // 资产分页接口
+    static List<UserDO> selectUsersByPage(@Param("offset") int offset, @Param("limit") int limit)  // 资产分页接口
+    {
+        return null;
+    }
 
-    Integer updateAsset(UserDO userDO);  // 修改资产
+    static Integer updateUser(UserDO userDO)  // 修改资产
+    {
+        return null;
+    }
 
 }
