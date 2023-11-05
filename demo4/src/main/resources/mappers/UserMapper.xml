@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dataaccess.mapper.UserMapper">
+    <!-- 根节点 -->
+    <!-- 设置resultMap -->
+    <resultMap id="UserDO" type="com.test.dataaccess.entity.UserDO">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="phone_num" jdbcType="VARCHAR" property="phoneNum"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="scu_id" jdbcType="VARCHAR" property="scuId"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="First_name" jdbcType="VARCHAR" property="FirstName"/>
+        <result column="Last_name" jdbcType="VARCHAR" property="LastName"/>
+
+    </resultMap>
+
+<!--     新增用户 -->
+            <insert id="insertUser"  parameterType="com.test.dataaccess.entity.UserDO" useGeneratedKeys="true" keyProperty="id">
+            INSERT INTO user(username, email, phone_num, address, scu_id, password, First_name, Last_name)
+             VALUES  (#{username}, #{email}, #{phoneNum},#{address}, #{scuId},#{password}, #{FirstName}, #{LastName})
+            </insert>
+
+            <!--根据id查询用户详情-->
+            <select id="selectUserById" resultMap="UserDO" >
+            SELECT *  FROM user WHERE id = #{id, jdbcType=VARCHAR}
+             </select>
+
+            <!-- 查询所有用户 -->
+            <select id="selectAllUsers" resultMap="UserDO" >
+                SELECT * FROM user
+                
+            </select>
+
+            <!-- 用户分页接口 -->
+            <select id="selectUsersByPage" resultType="com.test.dataaccess.entity.UserDO">
+                SELECT * FROM user LIMIT #{offset}, #{limit}
+            </select>
+
+            <!-- 修改用户 -->
+            <update id="updateUser" parameterType="com.test.dataaccess.entity.UserDO" >
+                UPDATE user
+                SET username = #{username}
+                WHERE id = #{id}
+            </update>
+
+
+</mapper>
